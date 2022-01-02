@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Colortem - Encode and Decode</title>
+		<link href="/src/css/style.css" rel="stylesheet">
+		<script src="/src/js/helper.js"></script>
+	</head>
+	<body>
+		<div id="nav">
+			<button onclick="location.href = '/';" class="big">Colortem</button>
+			
+			<button onclick="location.href = '/changelog.html';">Changelog</button>
+			<button onclick="location.href = '/encoder.html';">Encode and Decode</button>
+			<button onclick="location.href = '/';">Home</button>
+		</div>
+		<div id="body">
+			<h1>Encoder and Decoder</h1>
+			<textarea id="input1"></textarea><button onclick="encode(document.getElementById('input1').value, document.getElementById('version').value, document.getElementById('charset').value)">Encode!</button> 
+			<span>Using Colortem Version <select id="version">
+				<option value="1.0">1.0</option>
+			</select> with Charset <select id="charset">
+				<option value="Basic">Basic</option>
+				<option value="Basic Extended" selected>Basic Extended</option>
+			</select></span><br><br>
+			<a id="download"></a><br>
+			<button id="previewBtn" onclick="if (this.classList.toggle('on')) {this.innerHTML = 'Close Preview';} else {this.innerHTML = 'Open Preview'}">Open Preview</button><canvas id="preview"></canvas>
+			<br><br>
+
+			<input id="input2" type="file"><button onclick="decode(document.getElementById('input2'))">Decode!</button><br>
+			<div id="output"></div><br>
+
+			<h2>Versions</h3>
+			<!--<h3>Version 1.2</h3>
+			<ul>
+				<li class="txtyellow">Yet to come.</li>
+				<li class="txtgreen">Will support Regular Charset.</li>
+				<li class="txtgreen">Will support Metadata - Redirection, Password Protection, and Scaling.</li>
+				<li class="txtgreen">Will support Matrix Distribution.</li>
+			</ul>-->
+			<h3>Version 1.0 (Current Version)</h3>
+			<ul>
+				<li>Basic Encoder/Decoder Functionality</li>
+				<li>Version and Charset Detector Pixel</li>
+				<li>Encodes 4 characters in one pixel.</li>
+				<li>All bits come out in cold hues, because of the encoding method.</li>
+				<li class="txtred">Only supports Basic Charset (v1.0.0, v1.0.1) and Basic Extended Charset (v1.0.1).</li>
+			</ul>
+
+			<h2>Charsets</h2>
+			<h3>Basic</h3>
+			<ul>
+				<li>Uses Base39</li>
+				<li class="txtgreen">More compressed than the Regular Charset.</li>
+				<li class="txtgreen">Supports Lowercase Alphanumeric Characters, Space Character, Comma Character, and Period Character</li>
+				<li class="txtred">Does NOT support question mark, exclaimation point, newlines (returns), and other symbols.</li>
+				<li class="txtred">Does NOT support linking.</li>
+			</ul>
+			<h3>Basic Extended</h3>
+			<ul>
+				<li>Uses Base45</li>
+				<li class="txtgreen">More compressed than the Regular Charset.</li>
+				<li class="txtgreen">Supports all characters from Basic Charset, as well as Neutral Single Quote, Closing Single Quote (Apostrophe), Newline, Question mark, Exclaimation point, and Semicolon.</li>
+				<li class="txtred">Does NOT support linking.</li>
+			</ul>
+			<!--<h3>Regular</h3>
+			<ul>
+				<li>Uses Base72</li>
+				<li class="txtyellow">Yet to come.</li>
+				<li class="txtred">Takes up more space than the Basic Charset.</li>
+				<li class="txtgreen">Supports Alphanumeric Characters, Space Character, Comma Character, Period Character, Newline, Exclaimation Point, Question Mark, Semicolon, Colon, Forward Slash, and Dash / Minus Sign</li>
+				<li class="txtgreen">Supports linking (v1.1+).</li>
+			</ul>
+			<h3>Full Punctuation</h3>
+			<ul>
+				<li>Uses Base99</li>
+				<li class="txtyellow">Yet to come.</li>
+				<li class="txtred">Takes up even more space than the Regular Charset.</li>
+				<li class="txtgreen">Supports Alphanumeric Characters, Space Character, Comma Character, Period Character, Newline, Exclaimation Point, Question Mark, Semicolon, Colon, Forward Slash, Dash / Minus Sign, Plus Sign, Asterisk, Equal Sign, Percent Sign, Dollar Sign, Hash, At Sign, Ampersand, Caret, Neutral Single Quote, Opening Single Quote, Closing Single Quote, Neutral Double Quote, Opening Double Quote, Closing Double Quote, Opening Parentheses, Closing Parentheses, Opening Brackets, Closing Brackets, Opening Braces, Closing Braces, Pipe Sign / Vertical Bar, Backslash, Less Than, Greater Than, Tilde, and Backtick</li>
+				<li class="txtgreen">Supports linking (v1.1+).</li>
+			</ul>-->
+		</div>
+		<script src="/src/js/latest.js"></script>
+	</body>
+</html>

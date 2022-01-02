@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+* {
+	font-family: 'Oxygen', sans-serif;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+#head *, #nav * {
+	color: white;
+}
+
+#nav {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	background-image: linear-gradient(to right, #f77062 0%, #fe5196 100%);
+	height: 50px;
+	border-bottom: 0.5px solid navy;
+}
+
+#nav button {
+	text-decoration: none;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	float: right;
+	font-size: 15px;
+	padding: 6px 15px;
+	margin: 0;
+	height: 50px;
+	transition: 120ms linear;
+	animation: 150ms ease-out 0s 1 slideInFromRight;
+}
+
+#nav button.big {
+	float: left;
+	font-size: 20px;
+	padding: 0px 15px;
+	animation-name: slideInFromLeft;
+}
+
+#nav button:hover {
+	background-color: rgba(255, 240, 240, 0.2);
+}
+
+#nav button:active {
+	background-color: rgba(255, 240, 240, 0.4);
+}
+
+#head {
+	background-image: linear-gradient(-225deg, #5271C4 0%, #B19FFF 48%, #ECA1FE 100%);
+	padding: 20px;
+	text-align: center;
+	border-bottom: 0.5px solid navy;
+	height: calc(100vh - 90px);
+}
+
+#head h1 {
+	font-size: 70px;
+	margin-bottom: 0;
+	margin-top: calc((100vh - 90px) * 0.15);
+}
+
+#head h1 + p {
+	font-size: 10px;
+	margin-bottom: 40px;
+}
+
+#headfoot {
+	margin-top: calc((100vh - 90px) * 0.25);
+}
+
+.arrow-down {
+	width: 50px;
+	padding: 0;
+	margin: 0;
+}
+
+#headfoot p {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+#headfoot button {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+
+#body {
+	padding: 10px 10px;
+	min-height: 90vh;
+	background-color: whitesmoke;
+}
+
+#previewBtn {
+	opacity: 0;
+	border: 5px solid #fe6b51;
+	border-radius: 5px;
+	height: 30px;
+	transition: 120ms linear;
+}
+
+#previewBtn.activated {
+	display: inline-block;
+	opacity: 100%;
+}
+
+#preview {
+	display: none;
+	border: 5px solid #fe6b51;
+	border-radius: 5px;
+	overflow: hidden;
+	transition: 120ms linear;
+}
+
+#previewBtn.on + #preview.activated {
+	display: inline;
+}
+
+.txtgreen {
+	color: rgb(43, 184, 0);
+}
+
+.txtyellow {
+	color: #e1ad01;
+}
+
+.txtred {
+	color: #f73c2f;
+}
+
+/*
+background-image: linear-gradient(to right, #007adf 0%, #00ecbc 100%);
+background-image: linear-gradient(to right, #f77062 0%, #fe5196 100%);
+*/
